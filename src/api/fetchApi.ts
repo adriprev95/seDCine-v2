@@ -1,7 +1,7 @@
 import type { MovieList, Movie } from "@/api/types"
 import { ref } from "vue"
 
-const apikey = "bb6f51bef07465653c3e553d6ab161a8";
+const apikey = import.meta.env.VITE_API_KEY;
 const movieList = ref<MovieList>();
 const movie = ref<Movie>();
 
