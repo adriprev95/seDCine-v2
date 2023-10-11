@@ -63,7 +63,12 @@ export async function getMoviePopularList():Promise<MovieList | undefined>{
 
 export async function getMovieUpcominList():Promise<MovieList | undefined>{
     try {
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2%7C3&release_date.gte=2024-01-01&release_date.lte=2024-01-26&api_key=bb6f51bef07465653c3e553d6ab161a8");
+        const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?" +
+            new URLSearchParams({
+                language: "en - US",
+                page: "1",
+                api_key: apikey
+            }));
         if (response.status != 200) {
             throw new Error("Error http:" + response.status);
         }
@@ -77,7 +82,12 @@ export async function getMovieUpcominList():Promise<MovieList | undefined>{
 
 export async function getMovieCurrentlyList():Promise<MovieList | undefined>{
     try {
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2%7C3&release_date.gte=2023-10-01&release_date.lte=2023-10-10&api_key=bb6f51bef07465653c3e553d6ab161a8");
+       const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?" +
+            new URLSearchParams({
+                language: "en - US",
+                page: "1",
+                api_key: apikey
+            }));
         if (response.status != 200) {
             throw new Error("Error http:" + response.status);
         }
