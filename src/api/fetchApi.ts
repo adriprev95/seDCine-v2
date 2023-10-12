@@ -63,7 +63,7 @@ export async function getMoviePopularList():Promise<MovieList | undefined>{
 
 export async function getMovieUpcominList():Promise<MovieList | undefined>{
     try {
-        const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?" +
+        const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?" +
             new URLSearchParams({
                 language: "en - US",
                 page: "1",

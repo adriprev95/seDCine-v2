@@ -13,7 +13,7 @@ interface Section {
   upcomingSection: Boolean
 }
 */
-let currentSection = ref<String>('Currently Section')
+let currentSection = ref<String>('Actualmente en Cines')
 </script>
 
 <template>
@@ -22,10 +22,13 @@ let currentSection = ref<String>('Currently Section')
   </header>
   <main class="flex-col justify-center items-center mt-16 md:mt-28 mx-5 md:mx-32">
     <TrendSlideComponent></TrendSlideComponent>
-    <HeaderSectionComponent header-name="Actualmente en Cines" />
-    <CurrentlySectionComponent v-if="currentSection === 'Currently Section'" />
-    <UpcomingSectionComponent v-if="currentSection === 'Upcomin Section'" />
-    <PopularSectionComponent v-if="currentSection === 'Popular Section'" />
+    <HeaderSectionComponent
+      :header-name="currentSection"
+      @getSection="(name) => (currentSection = name)"
+    />
+    <CurrentlySectionComponent v-if="currentSection === 'Actualmente en Cines'" />
+    <UpcomingSectionComponent v-if="currentSection === 'Proximos Estrenos'" />
+    <PopularSectionComponent v-if="currentSection === 'Peliculas Populares'" />
   </main>
   <footer>
     <h2 class="text-[#e5cc7c] text-center text-xl my-7">Se de cine</h2>
