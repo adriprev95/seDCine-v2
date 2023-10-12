@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSectionComponent from './HeaderSectionComponent.vue'
 import { onBeforeMount, ref } from 'vue'
 import { getMovieCurrentlyList } from '@/api/fetchApi'
 import type { MovieList, Movie } from '@/api/types'
