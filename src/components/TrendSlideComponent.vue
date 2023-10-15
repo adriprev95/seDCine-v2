@@ -17,7 +17,6 @@
 import { onBeforeMount, ref } from 'vue'
 import { getMovieTrendList, getMovieById } from '@/api/fetchApi'
 import type { MovieList, Movie } from '@/api/types'
-import router from 'vue-router'
 
 let movie_list = ref<MovieList | undefined>()
 let trend_movies = ref<Movie[]>()

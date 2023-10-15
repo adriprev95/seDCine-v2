@@ -12,6 +12,7 @@
           :src="imageHttp + movie.poster_path"
           :alt="movie.title"
           class="rounded-xl md:rounded-3xl h-full"
+          @click="$router.push({ name: 'detail', params: { id: movie.id } })"
         />
       </figure>
     </div>

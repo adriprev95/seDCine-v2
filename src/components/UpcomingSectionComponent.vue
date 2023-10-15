@@ -12,6 +12,7 @@
           :src="imageHttp + movie.poster_path"
           alt="algo"
           class="object-cover rounded-xl md:rounded-3xl h-full"
+          @click="$router.push({ name: 'detail', params: { id: movie.id } })"
         />
       </figure>
     </div>
@@ -19,9 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSectionComponent from './HeaderSectionComponent.vue'
 import { onBeforeMount, ref } from 'vue'
-import { getMovieUpcominList } from '@/api/fetchApi'
+import { getMovieUpcominList, getMovieById } from '@/api/fetchApi'
 import type { MovieList, Movie } from '@/api/types'
 
 let movie_list = ref<MovieList | undefined>()
