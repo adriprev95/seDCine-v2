@@ -6,12 +6,12 @@
       <figure
         v-for="movie in trend_movies"
         :key="movie.id"
-        class="aspect-[2/3] transition duration-200 hover:scale-105"
+        class="transition duration-200 hover:scale-105"
       >
         <img
           :src="imageHttp + movie.poster_path"
           alt="algo"
-          class="object-cover rounded-xl md:rounded-3xl"
+          class="object-cover rounded-xl md:rounded-3xl h-full"
         />
       </figure>
     </div>

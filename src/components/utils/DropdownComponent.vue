@@ -1,13 +1,11 @@
 <template>
-  <nav class="w-[350px] relative">
-    <header
-      class="flex justify-between items-center h-14 border-[#e5cc7c] gap-6 border-dashed border-b-2"
-      @click="dropdowActive = !dropdowActive"
-    >
+  <nav class="w-[350px] relative cursor-pointer">
+    <header class="flex justify-between items-center h-14 gap-6" @click="clickDown">
       <h2 class="text-[#e5cc7c] font-semibold text-xl md:text-2xl">{{ activeName }}</h2>
       <img
         src="@/assets/icons/viñeta.svg"
         alt=""
+        id="arrow"
         class="h-3 md:h-7 transition duration-300 focus:-rotate-90"
       />
     </header>
@@ -46,7 +44,15 @@ const dropdown = (n: String) => {
   emit('pushName', n)
 }
 
-const dropdowActive = ref<Boolean>(false)
+let dropdowActive = ref<Boolean>(false)
+const clickDown = () => {
+  dropdowActive.value = !dropdowActive.value
+  if (dropdowActive.value) {
+    document.getElementById('arrow')?.classList.add('-rotate-90')
+  } else {
+    document.getElementById('arrow')?.classList.remove('-rotate-90')
+  }
+}
 </script>
 
 <style scoped>
@@ -55,7 +61,7 @@ const dropdowActive = ref<Boolean>(false)
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(0.5, 1, 0.8, 1);
+  transition: all 0.3s cubic-bezier(0.5, 1, 0.8, 1);
 }
 
 .slide-fade-enter-from,

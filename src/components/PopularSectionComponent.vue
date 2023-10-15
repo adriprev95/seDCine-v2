@@ -10,7 +10,7 @@
       >
         <img
           :src="imageHttp + movie.poster_path"
-          alt="algo"
+          :alt="movie.title"
           class="rounded-xl md:rounded-3xl h-full"
         />
       </figure>
